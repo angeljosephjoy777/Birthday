@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Wishes 💕</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffd6e7, #f5a9c8, #ffc9df);
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* MAIN CARD */
+        .card {
+            position: relative;
+            width: 90%;
+            max-width: 850px;
+            min-height: 680px;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 35px;
+
+            background: rgba(255, 235, 244, 0.82);
+
+            border: 3px solid white;
+
+            box-shadow:
+                0 20px 60px rgba(110, 45, 100, 0.25),
+                inset 0 0 30px rgba(255,255,255,0.6);
+
+            overflow: hidden;
+        }
+
+        /* TITLE */
+
+        h1 {
+            color: #702a8c;
+            font-size: clamp(42px, 7vw, 70px);
+            text-shadow: 2px 2px 5px white;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: #803c99;
+            font-size: clamp(25px, 4vw, 35px);
+            margin-bottom: 15px;
+        }
+
+        /* MESSAGE */
+
+        .message {
+            color: #69267b;
+            font-size: clamp(19px, 3vw, 25px);
+            line-height: 1.45;
+            max-width: 680px;
+            margin: auto;
+        }
+
+        .love {
+            color: #8b3fa3;
+            font-size: 27px;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           CAKE
+        ========================= */
+
+        .cake-area {
+            position: relative;
+            width: 280px;
+            height: 210px;
+            margin: 15px auto 5px;
+        }
+
+        .cake {
+            position: absolute;
+            width: 230px;
+            height: 150px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Bottom layer */
+
+        .layer1 {
+            position: absolute;
+            width: 230px;
+            height: 55px;
+            bottom: 0;
+            left: 0;
+
+            background: linear-gradient(
+                to bottom,
+                #d9b4ff,
+                #b77be7
+            );
+
+            border: 3px solid #955bc1;
+            border-radius: 12px;
+        }
+
+        /* Middle layer */
+
+        .layer2 {
+            position: absolute;
+            width: 180px;
+            height: 48px;
+            bottom: 48px;
+            left: 25px;
+
+            background: linear-gradient(
+                to bottom,
+                #e3c4ff,
+                #bd88ec
+            );
+
+            border: 3px solid #955bc1;
+            border-radius: 12px;
+        }
+
+        /* Top layer */
+
+        .layer3 {
+            position: absolute;
+            width: 130px;
+            height: 42px;
+            bottom: 90px;
+            left: 50px;
+
+            background: linear-gradient(
+                to bottom,
+                #ead5ff,
+                #c69af0
+            );
+
+            border: 3px solid #955bc1;
+            border-radius: 12px;
+        }
+
+        /* Cream */
+
+        .cream {
+            position: absolute;
+            width: 100%;
+            height: 12px;
+            top: -7px;
+            background: #fff3ff;
+            border-radius: 50%;
+        }
+
+        /* =========================
+           CANDLES
+           ========================= */
+
+        .candles {
+            position: absolute;
+
+            /* IMPORTANT:
+               Candles are now sitting
+               directly ON TOP of cake */
+            top: -5px;
+
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 100px;
+            height: 65px;
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 13px;
+
+            z-index: 10;
+        }
+
+        .candle {
+            position: relative;
+
+            width: 12px;
+            height: 48px;
+
+            background: linear-gradient(
+                90deg,
+                #c79620,
+                #ffe889,
+                #c79620
+            );
+
+            border-radius: 4px;
+
+            box-shadow:
+                0 2px 5px rgba(100,70,10,0.3);
+        }
+
+        /* Flame */
+
+        .flame {
+            position: absolute;
+
+            width: 16px;
+            height: 23px;
+
+            top: -23px;
+            left: -2px;
+
+            background: #ffd83d;
+
+            border-radius: 50% 50% 50% 50%;
+
+            box-shadow:
+                0 0 10px #ffcc33,
+                0 0 20px #ffdf66;
+
+            animation: flame 0.7s infinite alternate;
+        }
+
+        @keyframes flame {
+
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform:
+                    scale(0.75)
+                    translateY(2px);
+            }
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 12px 24px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: #773b91;
+            color: white;
+
+            font-family: 'Dancing Script', cursive;
+            font-size: 21px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 15px rgba(100,40,120,0.3);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            background: #5f2878;
+        }
+
+        /* =========================
+           SECRET LETTER
+        ========================= */
+
+        .letter-overlay {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(80,30,70,0.65);
+
+            justify-content: center;
+            align-items: center;
+
+            z-index: 1000;
+
+            padding: 20px;
+        }
+
+        .letter {
+
+            position: relative;
+
+            width: 90%;
+            max-width: 600px;
+
+            padding: 40px 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff9fd,
+                    #ffe8f3
+                );
+
+            border-radius: 20px;
+
+            border: 3px solid #e3a6c6;
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.3);
+
+            animation: letterOpen 0.5s ease;
+        }
+
+        @keyframes letterOpen {
+
+            from {
+                transform: scale(0.5) rotate(-5deg);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1) rotate(0);
+                opacity: 1;
+            }
+        }
+
+        .letter h2 {
+
+            color: #762b8e;
+
+            font-size: 38px;
+
+            margin-bottom: 20px;
+        }
+
+        .letter p {
+
+            color: #713477;
+
+            font-size: 23px;
+
+            line-height: 1.6;
+        }
+
+        .close {
+
+            position: absolute;
+
+            top: 10px;
+            right: 15px;
+
+            border: none;
+
+            background: none;
+
+            color: #8c4a9f;
+
+            font-size: 30px;
+
+            box-shadow: none;
+
+            padding: 0;
+        }
+
+        .close:hover {
+            background: none;
+            transform: scale(1.2);
+        }
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+
+            position: absolute;
+
+            color: #9b3db9;
+
+            font-size: 25px;
+
+            animation:
+                float 5s infinite ease-in-out;
+
+            opacity: 0.8;
+        }
+
+        .h1 {
+            left: 7%;
+            top: 18%;
+        }
+
+        .h2 {
+            left: 15%;
+            top: 65%;
+            animation-delay: 1s;
+        }
+
+        .h3 {
+            right: 8%;
+            top: 20%;
+            animation-delay: 2s;
+        }
+
+        .h4 {
+            right: 18%;
+            top: 70%;
+            animation-delay: 1.5s;
+        }
+
+        .h5 {
+            left: 50%;
+            top: 7%;
+            animation-delay: 0.8s;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform:
+                    translateY(0)
+                    rotate(-10deg);
+            }
+
+            50% {
+                transform:
+                    translateY(-25px)
+                    rotate(10deg);
+            }
+        }
+
+        /* =========================
+           GIFTS
+        ========================= */
+
+        .gifts {
+
+            position: absolute;
+
+            bottom: 18px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            gap: 12px;
+        }
+
+        .gift {
+
+            position: relative;
+
+            width: 45px;
+            height: 38px;
+
+            background: #d889b5;
+
+            border-radius: 5px;
+        }
+
+        .gift::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 18px;
+            top: 0;
+
+            width: 9px;
+            height: 100%;
+
+            background: #f7d6ee;
+        }
+
+        .gift::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: -8px;
+            left: -4px;
+
+            width: 53px;
+            height: 10px;
+
+            background: #c673a2;
+
+            border-radius: 5px;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:600px) {
+
+            .card {
+                min-height: 700px;
+                padding: 30px 15px;
+            }
+
+            .cake-area {
+                transform: scale(0.85);
+                margin-top: 10px;
+            }
+
+            .message {
+                font-size: 20px;
+            }
+
+            .love {
+                font-size: 23px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <!-- FLOATING HEARTS -->
+
+        <div class="heart h1">💜</div>
+        <div class="heart h2">💕</div>
+        <div class="heart h3">💗</div>
+        <div class="heart h4">💖</div>
+        <div class="heart h5">💞</div>
+
+
+        <!-- TITLE -->
+
+        <h1>Happy Birthday!</h1>
+
+        <div class="subtitle">
+            To My Dearest Friend 💕
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="message">
+
+            Wishing you a beautiful birthday filled with
+            <b>love, laughter, happiness</b> and unforgettable memories! ✨
+
+            <br><br>
+
+            May all your dreams come true,
+            and may your life always be surrounded by
+            beautiful moments and wonderful people. 💜
+
+        </div>
+
+
+        <div class="love">
+            You deserve all the happiness in the world! 🥰
+        </div>
+
+
+        <!-- =========================
+             CAKE
+        ========================= -->
+
+        <div class="cake-area">
+
+            <div class="cake">
+
+                <!-- CANDLES ON TOP OF CAKE -->
+
+                <div class="candles">
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                </div>
+
+
+                <!-- TOP LAYER -->
+
+                <div class="layer3">
+                    <div class="cream"></div>
+                </div>
+
+
+                <!-- MIDDLE LAYER -->
+
+                <div class="layer2">
+                    <div class="cream"></div>
+                </div>
+
+
+                <!-- BOTTOM LAYER -->
+
+                <div class="layer1">
+                    <div class="cream"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="buttons">
+
+            <button onclick="celebrate()">
+                🎂 Make a Wish
+            </button>
+
+            <button onclick="openLetter()">
+                💌 Secret Letter
+            </button>
+
+        </div>
+
+
+        <!-- GIFTS -->
+
+        <div class="gifts">
+
+            <div class="gift"></div>
+            <div class="gift"></div>
+            <div class="gift"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         SECRET LETTER POPUP
+    ========================= -->
+
+    <div class="letter-overlay" id="letterOverlay">
+
+        <div class="letter">
+
+            <button class="close" onclick="closeLetter()">
+                ×
+            </button>
+
+            <h2>
+                💌 A Secret Letter For You
+            </h2>
+
+            <p>
+
+                Dear Bestie, 💕
+
+                <br><br>
+
+                On your special day, I just want you to know
+                how grateful I am to have you in my life. 🥹💗
+
+                <br><br>
+
+                Thank you for all the laughs, memories,
+                silly conversations and beautiful moments
+                we've shared together.
+
+                <br><br>
+
+                I hope this new year of your life brings you
+                endless happiness, success, love and
+                everything your heart wishes for. ✨
+
+                <br><br>
+
+                Never forget how special you are. 💜
+
+                <br><br>
+
+                Happy Birthday once again! 🎂💕
+
+                <br><br>
+
+                With lots and lots of love,
+                <br>
+                <b>Your Forever Friend 💗</b>
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* SECRET LETTER */
+
+        function openLetter() {
+
+            document.getElementById(
+                "letterOverlay"
+            ).style.display = "flex";
+
+        }
+
+
+        function closeLetter() {
+
+            document.getElementById(
+                "letterOverlay"
+            ).style.display = "none";
+
+        }
+
+
+        /* HEART CELEBRATION */
+
+        function celebrate() {
+
+            for (let i = 0; i < 30; i++) {
+
+                const heart =
+                    document.createElement("div");
+
+                heart.innerHTML =
+                    ["💗", "💜", "💕", "💖", "💞"]
+                    [Math.floor(Math.random() * 5)];
+
+                heart.style.position = "fixed";
+
+                heart.style.left =
+                    Math.random() * 100 + "vw";
+
+                heart.style.top = "100vh";
+
+                heart.style.fontSize =
+                    (20 + Math.random() * 25) + "px";
+
+                heart.style.zIndex = "2000";
+
+                heart.style.pointerEvents = "none";
+
+                document.body.appendChild(heart);
+
+
+                heart.animate(
+
+                    [
+                        {
+                            transform:
+                                "translateY(0) rotate(0deg)",
+                            opacity: 1
+                        },
+
+                        {
+                            transform:
+                                `translateY(-${window.innerHeight + 150}px)
+                                 rotate(${Math.random() * 360}deg)`,
+                            opacity: 0
+                        }
+                    ],
+
+                    {
+                        duration:
+                            3000 +
+                            Math.random() * 2000,
+
+                        easing: "ease-out"
+                    }
+
+                );
+
+
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
